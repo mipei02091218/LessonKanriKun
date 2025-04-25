@@ -37,8 +37,8 @@ belongs_to: lesson
 
 | Colum      | Type       | Options                        |
 |------------|------------|--------------------------------|
-| teacher    | references | null: false, foreign_key: true |
-| start_time | integer    | null: false                    |
+| user       | references | null: false, foreign_key: true |
+| start_time | datetime   | null: false                    |
 
 ### Association
 

@@ -34,6 +34,8 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
   before_validation :restrict_role_assignment, on: :create 
 
+  has_many :lessons, foreign_key: 'user_id'
+  
   private
        
   def set_default_role
