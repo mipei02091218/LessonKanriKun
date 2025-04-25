@@ -10,4 +10,13 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "homes#index"
   devise_for :users
+
+  resources :lessons do
+    member do
+      get :edit
+      delete :destroy
+    end
+  end
+
+    resources :absences, only: [:new, :create]
 end
