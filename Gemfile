@@ -77,3 +77,5 @@ end
 gem 'devise'
 
 gem 'pry-rails'
+
+gem 'simple_calendar'
