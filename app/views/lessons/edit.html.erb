@@ -23,6 +23,18 @@
       <div class="delete_lesson">
       <%= link_to "削除", lesson_path(@lesson), data: {turbo_method: :delete} %>
       </div>
+
+      <h2>欠席者一覧</h2>
+      <% if @absent_students.any? %>
+        <ul>
+        <% @absent_students.each do |student| %>
+          <li><%= student.name %></li>
+        <% end %>
+        </ul>
+      <% else %>
+        <p>欠席者はいません。</p>
+      <% end %>
+      
       <div class="return_to_calendar">
         <%= link_to "カレンダーに戻る", lessons_path %>
       </div>

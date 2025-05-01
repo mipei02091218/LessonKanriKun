@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_04_25_071549) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_01_052031) do
+  create_table "absences", charset: "utf8mb3", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "lesson_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_absences_on_lesson_id"
+    t.index ["user_id", "lesson_id"], name: "index_absences_on_user_id_and_lesson_id", unique: true
+    t.index ["user_id"], name: "index_absences_on_user_id"
+  end
+
   create_table "lessons", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "teacher_id", null: false
     t.datetime "start_time", null: false
@@ -34,5 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_04_25_071549) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "absences", "lessons"
+  add_foreign_key "absences", "users"
   add_foreign_key "lessons", "users", column: "teacher_id"
 end

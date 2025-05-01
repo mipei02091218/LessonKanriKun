@@ -26,7 +26,6 @@ has_many :posts
 |--------------|-------------|--------------------------------|
 | student      | references  | null: false, foreign_key: true |
 | lesson       | references  | null: false, foreign_key: true |
-| absent       | boolean     | null: false                    |
 
 ### Association
 

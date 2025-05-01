@@ -17,7 +17,7 @@
             <%= link_to lesson.start_time.strftime("%H:%M"), edit_lesson_path(lesson.id) %>
           <% else %>
             <!-- 生徒の場合、欠席連絡ページに遷移 -->
-            <%= link_to lesson.start_time.strftime("%H:%M") %>
+            <%= link_to lesson.start_time.strftime("%H:%M"), lesson_path(lesson) %>
           <% end %>
         </div>
       <% end %>
