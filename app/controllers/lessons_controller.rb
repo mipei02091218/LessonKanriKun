@@ -44,6 +44,14 @@ class LessonsController < ApplicationController
     end
   end
 
+  def destroy
+    lesson = Lesson.find(params[:id])
+    if current_user.teacher? && lesson.teacher == current_user
+      lesson.destroy
+      redirect_to lessons_path
+    end
+  end
+
   private
 
   def lesson_parameter

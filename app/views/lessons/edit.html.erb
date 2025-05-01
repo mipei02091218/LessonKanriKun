@@ -18,7 +18,13 @@
         </div>
 
       <% end %>
-      
+      </div>
+      <h2>レッスン削除</h2>
+      <div class="delete_lesson">
+      <%= link_to "削除", lesson_path(@lesson), data: {turbo_method: :delete} %>
+      </div>
+      <div class="return_to_calendar">
+        <%= link_to "カレンダーに戻る", lessons_path %>
       </div>
     </div>
   </div>

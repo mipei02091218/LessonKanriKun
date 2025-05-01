@@ -10,7 +10,7 @@
 
         <div class="time">
           <%= form.label :start_time %>
-          <%= form.datetime_select :start_time %>
+          <%= form.datetime_select :start_time, start_year: 2025, minute_step: 10 %>
         </div>
 
         <div class="submit">
