@@ -18,5 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-    resources :absences, only: [:new, :create]
+  resources :absences, only: [:new, :create]
+  resources :notices, only: [:new, :create]
+
 end

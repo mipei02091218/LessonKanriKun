@@ -14,7 +14,7 @@
   </div>
   <div class="menu">
     <div class="menu-name">
-      <a href="#">お知らせ投稿</a>
+      <%= link_to "お知らせ", new_notice_path if current_user.teacher? %>
     </div>
   </div>
   <div class="menu">
