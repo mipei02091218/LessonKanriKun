@@ -31,18 +31,18 @@ class User < ApplicationRecord
 
   enum role: { student: 'student', teacher: 'teacher' }
 
-  after_initialize :set_default_role, if: :new_record?
-  before_validation :restrict_role_assignment, on: :create 
+  before_validation :assign_role_on_create, on: :create
+
+  has_many :lessons, foreign_key: 'teacher_id', dependent: :destroy
 
   private
        
-  def set_default_role
-    self.role ||= "student"
-  end
-
-  def restrict_role_assignment
-    if User.count > 0
-      self.role = 'student'
+  def assign_role_on_create
+    # 最初のユーザーには teacher を設定、それ以降は student を設定
+    if User.count == 0
+      self.role ||= 'teacher'  # 最初のユーザーだけteacher
+    else
+      self.role ||= 'student'  # それ以降はstudent
     end
   end
 

@@ -3,4 +3,27 @@
     <%= render "homes/side_bar" %>
   </div>
   <div class="main-contents">
+    <% if current_user.teacher? %>
+      <%= link_to 'レッスン日時を登録する', new_lesson_path %>
+    <% end %>
+
+    <%= month_calendar(events: @lessons) do |date, lessons| %>
+      <%= date.day %>
+      
+      <% lessons.each do |lesson| %>
+        <div>
+          <% if current_user.teacher? %>
+            <!-- 先生の場合、編集リンクを表示 -->
+            <%= link_to lesson.start_time.strftime("%H:%M"), edit_lesson_path(lesson.id) %>
+          <% else %>
+            <!-- 生徒の場合、欠席連絡ページに遷移 -->
+            <%= link_to lesson.start_time.strftime("%H:%M") %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="return_to_top">
+    <%= link_to "戻る", root_path %>
+    </div>
   </div>
+</div>

@@ -4,8 +4,25 @@
   </div>
   <div class="main-contents">
     <div class="lesson-register">
+      <h1>レッスン開始時間登録</h1>
       <div class="register">
-        レッスン開始時間登録
+      <%= form_with(model: @lesson, local: true) do |form| %>
+
+        <div class="time">
+          <%= form.label :start_time %>
+          <%= form.datetime_select :start_time, start_year: 2025, minute_step: 10 %>
+        </div>
+
+        <div class="submit">
+          <%= form.submit %>
+        </div>
+
+      <% end %>
+
+      <div class="return_to_calendar">
+        <%= link_to "カレンダーに戻る", lessons_path %>
+      </div>
+      
       </div>
     </div>
   </div>
