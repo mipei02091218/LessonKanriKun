@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
+  </div>
+
+  <div class="lesson-detail">
+    <h1>レッスン詳細</h1>
+
+    <p><strong>開始時間:</strong> <%= @lesson.start_time.strftime('%Y年%m月%d日 %H:%M') %></p>
+
+    <% if @absence %>
+      <p>このレッスンは欠席登録済みです。</p>
+      <%= button_to "欠席を取り消す", lesson_absence_path(@lesson, @absence),
+                    method: :delete, data: { confirm: "欠席を取り消しますか？" } %>
+    <% else %>
+      <%= button_to "このレッスンを欠席する", lesson_absences_path(@lesson),
+                    method: :post, data: { confirm: "欠席登録してもよいですか？" } %>
+    <% end %>
+  </div>
+</div>

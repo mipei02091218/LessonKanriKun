@@ -34,6 +34,8 @@ class User < ApplicationRecord
   before_validation :assign_role_on_create, on: :create
 
   has_many :lessons, foreign_key: 'teacher_id', dependent: :destroy
+  has_many :absences, dependent: :destroy
+  has_many :absent_lessons, through: :absences, source: :lesson
 
   private
        
