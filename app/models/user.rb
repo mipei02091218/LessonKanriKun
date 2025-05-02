@@ -36,7 +36,8 @@ class User < ApplicationRecord
   has_many :lessons, foreign_key: 'teacher_id', dependent: :destroy
   has_many :absences, dependent: :destroy
   has_many :absent_lessons, through: :absences, source: :lesson
-
+  has_many :notices, dependent: :destroy
+  
   private
        
   def assign_role_on_create
