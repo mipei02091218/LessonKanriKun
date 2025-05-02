@@ -1,11 +1,20 @@
-<h1>お知らせ投稿</h1>
-
-<%= form_with model: @notice, local: true do |f| %>
-  <div class="field">
-    <%= f.label :content, "内容" %><br>
-    <%= f.text_area :content %>
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
   </div>
-  <div class="actions">
-    <%= f.submit "投稿する" %>
+  <div class="main-contents">
+    <h1>お知らせ投稿</h1>
+    <%= form_with model: @notice, local: true do |f| %>
+    <div class="field">
+      <%= f.label :content, "内容" %><br>
+      <%= f.text_area :content %>
+    </div>
+    <div class="actions">
+      <%= f.submit "投稿する" %>
+    </div>
+    <% end %>
+    <div class="return_to_top">
+    <%= link_to "戻る", root_path %>
+    </div>
   </div>
-<% end %>
+</div>
