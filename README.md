@@ -5,10 +5,8 @@
 
 | Colum              | Type   | Options                   |
 |--------------------|--------|---------------------------|
-| last_name          | string | null: false               |
-| first_name         | string | null: false               |
-| last_name_kana     | string | null: false               |
-| first_name_kana    | string | null: false               |
+| name               | string | null: false               |
+| name_kana          | string | null: false               |
 | email              | string | null: false               |
 | encrypted_password | string | null: false, unique: true |
 | role               | string | null: false               |
@@ -16,20 +14,21 @@
 ### Association
 
 has_many :lessons, foreign_key: :teacher_id
-has_many :absences  
+has_many :absences
+has_many :absent_lessons  
 has_many :notices  
 has_many :posts
 
 ## absencesテーブル
 
-| Colum        | Type        | Options                        |
-|--------------|-------------|--------------------------------|
-| student      | references  | null: false, foreign_key: true |
-| lesson       | references  | null: false, foreign_key: true |
+| Colum  | Type        | Options                        |
+|--------|-------------|--------------------------------|
+| user   | references  | null: false, foreign_key: true |
+| lesson | references  | null: false, foreign_key: true |
 
 ### Association
 
-belongs_to :student, class_name: "User"  
+belongs_to :user  
 belongs_to: lesson
 
 ## lessonsテーブル
@@ -43,27 +42,25 @@ belongs_to: lesson
 
 belongs_to :teacher, class_name: "User"
 has_many :absences
+has_many :absent_students
 
 ## noticesテーブル
 
-| Colum        | Type       | Options                        |
-|--------------|------------|--------------------------------|
-| teacher_id   | references | null: false, foreign_key: true |
-| title        | string     | null: false                    |
-| body         | text       | null: false                    |
-| posted_at    | datetime   | null: false                    |
+| Colum      | Type       | Options                        |
+|------------|------------|--------------------------------|
+| user       | references | null: false, foreign_key: true |
+| content    | text       | null: false                    |
 
 ### Association
 
-belongs_to :teacher, class_name: "User", foreign_key: :teacher_id  
+belongs_to :user 
 
 ## postsテーブル
 
 | Colum     | Type       | Options                        |
 |-----------|------------|--------------------------------|
 | user      | references | null: false, foreign_key: true |
-| body      | text       | null: false                    |
-| posted_at | datetime   | null: false                    |
+| content   | text       | null: false                    |
 
 ### Association
 

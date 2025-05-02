@@ -9,6 +9,7 @@
 }
 
 .main-contents{
+  margin: 30px;
   background-color: #FFFFFF;
   width: calc(100vh-300px)
 }
@@ -76,4 +77,10 @@
 .menu-name a{
   text-decoration: none;
   color:#FFFFFF;
+}
+
+/*お知らせ一覧********************************/
+
+.notice_lists{
+  margin: 20px;
 }

@@ -15,6 +15,25 @@ class NoticesController < ApplicationController
     end
   end
 
+  def edit
+    @notice = Notice.find(params[:id])
+  end
+
+  def update
+    @notice = Notice.find(params[:id])
+    if @notice.update(notice_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @notice = Notice.find(params[:id])
+    @notice.destroy
+    redirect_to root_path
+  end
+
   private
 
   def notice_params

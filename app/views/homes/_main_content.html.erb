@@ -4,9 +4,14 @@
 <div class="notice_lists">
   <% @notices.each do |notice| %>
     <div class="notice">
-      <li><%= notice.content %></li>
-      <P>(<%= notice.created_at.strftime("%Y年%m月%d日 %H:%M") %>)</P>
-
+      <li>
+        <% if current_user.teacher? %>
+          <%= link_to notice.content, edit_notice_path(notice) %>
+        <% else %>
+          <%= notice.content %>
+        <% end %>
+      </li>
+      <P>(<%= notice.created_at.strftime("%Y年%m月%d日 %H:%M") %></P>
     </div>
   <% end %>
 </div>
