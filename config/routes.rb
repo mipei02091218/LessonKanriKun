@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get :edit
       delete :destroy
     end
+    resources :absences, only: [:create, :destroy]
   end
 
   resources :absences, only: [:new, :create]

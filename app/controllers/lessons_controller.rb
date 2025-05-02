@@ -26,6 +26,7 @@ class LessonsController < ApplicationController
 
   def edit
     @lesson = Lesson.find(params[:id])
+    @absent_students = User.joins(:absences).where(absences: { lesson_id: @lesson.id })
     unless current_user.teacher? && @lesson.teacher == current_user
       redirect_to lessons_path, alert: '編集できるのは先生のみです'
     end
@@ -50,6 +51,11 @@ class LessonsController < ApplicationController
       lesson.destroy
       redirect_to lessons_path
     end
+  end
+
+  def show
+    @lesson = Lesson.find(params[:id])
+    @absence = current_user.absences.find_by(lesson_id: @lesson.id)
   end
 
   private
