@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_01_075615) do
-
+ActiveRecord::Schema[7.1].define(version: 2025_05_11_020253) do
   create_table "absences", charset: "utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "lesson_id", null: false
@@ -28,6 +27,18 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_01_075615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
+  end
+
+  create_table "messages", charset: "utf8mb3", force: :cascade do |t|
+    t.string "subject"
+    t.text "body"
+    t.boolean "read", default: false
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "notices", charset: "utf8mb3", force: :cascade do |t|
@@ -56,5 +67,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_01_075615) do
   add_foreign_key "absences", "lessons"
   add_foreign_key "absences", "users"
   add_foreign_key "lessons", "users", column: "teacher_id"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "notices", "users"
 end
