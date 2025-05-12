@@ -14,12 +14,13 @@
   </div>
   <div class="menu">
     <div class="menu-name">
-      <a href="#">メッセージ</a>
+      <%= link_to "お知らせ", new_notice_path if current_user.teacher? %>
     </div>
   </div>
   <div class="menu">
     <div class="menu-name">
-      <%= link_to "お知らせ", new_notice_path if current_user.teacher? %>
+      <%= link_to 'メッセージ', messages_path %>
     </div>
   </div>
+
 </div>

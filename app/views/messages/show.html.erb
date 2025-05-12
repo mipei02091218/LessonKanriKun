@@ -1,0 +1,21 @@
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>メッセージ詳細</h1>
+    
+    <p><strong>件名:</strong> <%= @message.subject %></p>
+    <p><strong>内容:</strong> <%= @message.body %></p>
+    <p><strong>送信者:</strong> <%= @message.sender.name %></p>
+    <p><strong>受信日:</strong> <%= @message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+
+    <% if @message.receiver == current_user %>
+      <%= link_to '返信する', reply_message_path(@message) %>
+    <% end %>
+    
+    <div class="return_to_top">
+    <%= link_to "戻る", messages_path %>
+    </div>
+  </div>
+</div>

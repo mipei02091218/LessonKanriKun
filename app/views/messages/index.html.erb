@@ -1,0 +1,40 @@
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>受信メッセージ一覧</h1>
+    
+    <% if current_user.role == 'student' %>
+      <div class="new-message-link" style="margin-bottom: 1em;">
+        <%= link_to '先生にメッセージを送る', new_message_path, class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+    <% @messages.each do |message| %>
+      <div class="message-box">
+        <p>
+          <% if message.sender == current_user %>
+            <strong>To:</strong> <%= message.receiver.name %>
+          <% else %>
+            <strong>From:</strong> <%= message.sender.name %>
+          <% end %>
+        </p>
+
+        <p>
+          <strong>件名:</strong>
+          <%= link_to(message.subject.presence || "Re", message_path(message)) %>
+        </p>
+        <p><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+        
+        <% if message.sender == current_user && message.read %>
+          <span class="badge badge-success">既読</span>
+        <% end %>
+
+      </div>
+    <% end %>
+    <div class="return_to_top">
+    <%= link_to "戻る", root_path %>
+    </div>
+  </div>
+</div>

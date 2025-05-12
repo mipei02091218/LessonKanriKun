@@ -1,0 +1,28 @@
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>メッセージ送信</h1>
+    
+    <%= form_with model: @message, url: messages_path, method: :post do |f| %>
+      <%= hidden_field_tag :receiver_id, User.find_by(role: 'teacher')&.id %>
+
+      <div class="field">
+        <%= f.label :subject, "件名" %>
+        <%= f.text_field :subject %>
+      </div>
+
+      <div class="field">
+        <%= f.label :body, "内容" %>
+        <%= f.text_area :body %>
+      </div>
+
+      <%= f.submit "送信"%>
+    <% end %>
+
+    <div class="return_to_top">
+    <%= link_to "戻る", root_path %>
+    </div>
+  </div>
+</div>

@@ -55,13 +55,17 @@ has_many :absent_students
 
 belongs_to :user 
 
-## postsテーブル
+## messagesテーブル
 
 | Colum     | Type       | Options                        |
 |-----------|------------|--------------------------------|
-| user      | references | null: false, foreign_key: true |
-| content   | text       | null: false                    |
+| sender    | references | null: false, foreign_key: true |
+| receiver  | references | null: false, foreign_key: true |
+| subject   | string     | null: false                    |
+| body      | text       | null: false                    |
+| read      | boolean    | default: false                 |
 
 ### Association
 
-belongs_to :user
+belongs_to :sender, class_name: 'User'
+belongs_to :receiver, class_name: 'User'

@@ -37,6 +37,9 @@ class User < ApplicationRecord
   has_many :absences, dependent: :destroy
   has_many :absent_lessons, through: :absences, source: :lesson
   has_many :notices, dependent: :destroy
+  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_messages, class_name: 'Message', foreign_key: 'receiver_id', dependent: :destroy
+  
   
   private
        
