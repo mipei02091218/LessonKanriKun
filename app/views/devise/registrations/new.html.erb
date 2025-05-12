@@ -1,46 +1,52 @@
-<h2>新規登録</h2>
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <h2 class="auth-title">新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name, "お名前（全角）" %><br />
-    <%= f.text_field :name, required: true %>
-  </div>
+      <div class="form-group">
+        <%= f.label :name, "お名前（全角）" %>
+        <%= f.text_field :name, required: true, class: "form-input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name_kana, "お名前カナ（カタカナ）" %><br />
-    <%= f.text_field :name_kana, required: true %>
-  </div>
+      <div class="form-group">
+        <%= f.label :name_kana, "お名前カナ（カタカナ）" %>
+        <%= f.text_field :name_kana, required: true, class: "form-input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上の半角英数字)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上の半角英数字)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-input" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード（確認）" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, "パスワード（確認）" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
+      </div>
 
-  <% if User.count == 0 %>
-    <div class="field">
-      <%= f.label :role, "ユーザー区分（最初の一人だけ選べます）" %><br />
-      <%= f.select :role, options_for_select([["先生", "teacher"], ["生徒", "student"]]) %>
+      <% if User.count == 0 %>
+        <div class="form-group">
+          <%= f.label :role, "ユーザー区分（最初の一人だけ選べます）" %>
+          <%= f.select :role, options_for_select([["先生", "teacher"], ["生徒", "student"]]), {}, class: "form-input" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <div class="auth-links">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-  
-  <div class="actions">
-    <%= f.submit "登録" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

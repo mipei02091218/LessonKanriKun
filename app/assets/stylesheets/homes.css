@@ -1,86 +1,105 @@
-.main-container{
+/* 基本リセットと全体レイアウト */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4faff;
+}
+
+/* Flexレイアウト */
+.main-container {
   display: flex;
+  min-height: 100vh;
 }
 
-.side-bar{
-  background-color: skyblue;
-  width: 300px;
-  height: 100vh;
-}
-
-.main-contents{
-  margin: 30px;
-  background-color: #FFFFFF;
-  width: calc(100vh-300px)
-}
-
-/*メインコンテンツ*************************/
-
-.main-contents-header{
-  height: 100px;
-}
-
-.contents{
-  height: calc(100vh-100px)
-}
-
-/*メインコンテンツヘッダー*********************/
-
-.header-title{
-  color: skyblue;
-  font-size: 30px;
-  margin-top: 40px;
-  padding: 0 20px;
-  font-weight: bold;
-}
-
-.contents{
-  font-size: 15px;
-  padding: 0 20px;
-}
-
-/*サイドバーヘッダー****************************/
-
-.side-bar-header{
-  height: 100px;
-  padding: 0 20px;
-  background-color: lightblue;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-name a{
-  font-size: 15px;
+/* サイドバー */
+.side-bar {
+  width: 240px;
+  background: skyblue;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* サイドバー上部（名前） */
+.side-bar-header {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  background: lightblue;
+  text-align: center;
+}
+
+/* メニューリスト */
+.menus {
+  padding: 20px;
+}
+
+.menu {
+  margin-bottom: 16px;
+}
+
+.menu-link {
+  display: block;
+  padding: 12px 16px;
+  background: white;
+  color: skyblue;
+  border-radius: 8px;
+  font-weight: bold;
   text-decoration: none;
+  transition: background 0.2s, color 0.2s;
 }
 
-.log-out a{
-  font-size: 15px;
-  padding: 14px;
-  color: #FFFFFF;
+.menu-link:hover {
+  background: #e0f5ff;
+  color: #007acc;
+}
+
+/* ログアウト */
+.logout-area {
+  padding: 20px;
+  text-align: center;
+}
+
+.logout-btn {
+  display: inline-block;
+  background: #ff6666;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
   text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
-/*サイドバーメニュー**************************/
-
-.menus{
-  padding: 0 20px;
-  height: calc(100vh-100px);
+.logout-btn:hover {
+  background: #cc3333;
 }
 
-.menu{
-  padding: 20px 0 40px 0;
+/* メインコンテンツ */
+.main-contents {
+  flex-grow: 1;
+  background: white;
+  padding: 40px;
 }
 
-.menu-name a{
-  text-decoration: none;
-  color:#FFFFFF;
+/* コンテンツのヘッダー */
+.main-contents-header {
+  border-bottom: 2px solid lightblue;
+  margin-bottom: 20px;
 }
 
-/*お知らせ一覧********************************/
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: skyblue;
+}
 
-.notice_lists{
-  margin: 20px;
+/* お知らせリストなど */
+.notice_lists .notice {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f0faff;
+  border-left: 4px solid skyblue;
+  border-radius: 4px;
 }

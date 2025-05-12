@@ -1,7 +1,5 @@
 <div class="main-container">
-  <div class="side-bar">
-    <%= render "homes/side_bar" %>
-  </div>
+
   <div class="main-contents">
     <% if current_user.teacher? %>
       <%= link_to 'レッスン日時を登録する', new_lesson_path %>
