@@ -21,5 +21,12 @@ Rails.application.routes.draw do
 
   resources :absences, only: [:new, :create]
   resources :notices, only: [:new, :create, :edit, :update, :destroy,]
+  
+  resources :messages, only: [:index, :show, :new, :create] do
+    member do
+      get :reply
+      post :create_reply
+    end
+  end
 
 end

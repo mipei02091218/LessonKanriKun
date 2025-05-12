@@ -1,2 +1,23 @@
-<h1>Messages#reply</h1>
-<p>Find me in app/views/messages/reply.html.erb</p>
+<div class="main-container">
+  <div class="side-bar">
+    <%= render "homes/side_bar" %>
+  </div>
+  <div class="main-contents">
+    <h1>メッセージ返信</h1>
+    
+    <%= form_with model: @message, url: create_reply_message_path(params[:id]), method: :post do |f| %>
+      <%= hidden_field_tag :receiver_id, @original_message.sender.id %>
+
+      <div class="field">
+        <%= f.label :body, "返信内容" %><br>
+        <%= f.text_area :body %>
+      </div>
+
+      <%= f.submit "返信" %>
+    <% end %>
+    
+    <div class="return_to_top">
+    <%= link_to "戻る", root_path %>
+    </div>
+  </div>
+</div>
