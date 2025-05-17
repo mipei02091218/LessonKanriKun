@@ -1,27 +1,34 @@
 <div class="main-container">
-
   <div class="main-contents">
+
     <% if current_user.teacher? %>
-      <%= link_to 'レッスン日時を登録する', new_lesson_path %>
+      <div class="calendar-header">
+        <%= link_to 'レッスン日時を登録する', new_lesson_path, class: "register-lesson-link" %>
+      </div>
     <% end %>
 
-    <%= month_calendar(events: @lessons) do |date, lessons| %>
-      <%= date.day %>
+    <div clsas="calendar-wrapper">
+      <%= month_calendar(events: @lessons, class: "calendar") do |date, lessons| %>
+        <div class="calender-day">
+          <div class="date-label"><%= date.day %></div>
       
-      <% lessons.each do |lesson| %>
-        <div>
-          <% if current_user.teacher? %>
-            <!-- 先生の場合、編集リンクを表示 -->
-            <%= link_to lesson.start_time.strftime("%H:%M"), edit_lesson_path(lesson.id) %>
-          <% else %>
-            <!-- 生徒の場合、欠席連絡ページに遷移 -->
-            <%= link_to lesson.start_time.strftime("%H:%M"), lesson_path(lesson) %>
+          <% lessons.each do |lesson| %>
+            <div class="lesson-item<%= current_user.teacher? ? 'teacher' : 'student' %>">
+              <% if current_user.teacher? %>
+                <!-- 先生の場合、編集リンクを表示 -->
+                <%= link_to lesson.start_time.strftime("%H:%M"), edit_lesson_path(lesson.id), class: "lesson-item" %>
+              <% else %>
+                <!-- 生徒の場合、欠席連絡ページに遷移 -->
+                 <%= link_to lesson.start_time.strftime("%H:%M"), lesson_path(lesson), class: "lesson-item" %>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
-    <% end %>
-    <div class="return_to_top">
-    <%= link_to "戻る", root_path %>
+    </div>
+
+    <div class="return-to-top">
+      <%= link_to "戻る", root_path, class: 'btn return-btn' %>
     </div>
   </div>
 </div>

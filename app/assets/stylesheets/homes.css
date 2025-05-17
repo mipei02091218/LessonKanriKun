@@ -103,3 +103,711 @@ body {
   border-left: 4px solid skyblue;
   border-radius: 4px;
 }
+
+/* ===========================
+   カレンダー全体
+   =========================== */
+.calendar {
+  margin: 20px 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* カレンダーの1日分のセル */
+.calendar .calendar-day {
+  border: 1px solid #ddd;
+  vertical-align: top;
+  padding: 6px;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+/* 日付ラベル */
+.calendar .date-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* レッスン情報リンク */
+.lesson-item {
+  margin-top: 5px;
+}
+
+.lesson-item a {
+  display: inline-block;
+  background-color: #4caf50; /* 緑っぽい */
+  color: white;
+  padding: 2px 6px;
+  font-size: 13px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.lesson-item.teacher a {
+  background-color: #2196f3; /* 青っぽい（先生用） */
+}
+
+/* ===========================
+   レッスン登録リンク
+   =========================== */
+.register-lesson-link {
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 8px 14px;
+  background-color: #ff9800;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ===========================
+   戻るリンク
+   =========================== */
+.return-to-top {
+  margin-top: 30px;
+}
+
+.return-to-top a {
+  display: inline-block;
+  background-color: #ccc;
+  color: white;
+  padding: 8px 14px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+/* レッスン日時登録画面 */
+.lesson-register {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fdfdfd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-register h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.lesson-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.datetime-select select {
+  margin-right: 0.5rem;
+  display: inline-block;
+  width: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.btn.btn-submit {
+  width: 100%;
+  background-color: #2196F3;
+}
+
+.btn.btn-return {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #777;
+  text-align: center;
+}
+
+/* レッスン日時変更画面 */
+.lesson-register {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  background-color: #fdfdfd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-register h1,
+.lesson-register h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.lesson-register .register,
+.lesson-register .delete_lesson,
+.lesson-register .return_to_calendar {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.lesson-register .time {
+  margin-bottom: 1.5rem;
+}
+
+.lesson-register label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.lesson-register select {
+  margin-right: 0.5rem;
+  display: inline-block;
+  width: auto;
+}
+
+.lesson-register .submit input[type="submit"] {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.lesson-register .submit input[type="submit"]:hover {
+  background-color: #0b7dda;
+}
+
+.delete_lesson a {
+  display: inline-block;
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.delete_lesson a:hover {
+  background-color: #c0392b;
+}
+
+.lesson-register ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #444;
+  max-width: 400px;
+  margin: 0 auto 1rem auto;
+}
+
+.lesson-register p {
+  text-align: center;
+  color: #777;
+}
+
+.return_to_calendar a {
+  display: inline-block;
+  background-color: #777;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.return_to_calendar a:hover {
+  background-color: #555;
+}
+
+
+/* 生徒用レッスン詳細画面 */
+.lesson-detail {
+  background: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.lesson-detail h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.lesson-detail p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #34495e;
+}
+
+.absence-section {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.absence-message {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #e74c3c;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-register-absence {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-register-absence:hover {
+  background-color: #2980b9;
+}
+
+.btn-cancel-absence {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-cancel-absence:hover {
+  background-color: #c0392b;
+}
+
+.return-to-calendar {
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #95a5a6;
+  color: white;
+  padding: 10px 25px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-return:hover {
+  background-color: #7f8c8d;
+}
+
+/* メッセージ一覧  */
+.main-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.new-message-link .btn-primary {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-box {
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.message-sent {
+  background-color: #daf1ff;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.message-received {
+  background-color: #f5f5f5;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.message-header {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.message-date {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.message-subject strong {
+  color: #333;
+}
+
+.badge-success {
+  background-color: #28a745;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
+
+.return_to_top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #666;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-return:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* メッセージ送信画面 */
+.message-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.return_to_top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-return:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* メッセージ詳細 */
+.message-detail p {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.message-detail strong {
+  color: #222;
+}
+
+.message-subject,
+.message-sender,
+.message-date {
+  color: #555;
+  font-weight: normal;
+}
+
+.message-body {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.reply-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-reply {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reply:hover {
+  background-color: #1e7e34;
+}
+
+.return_to_top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-return:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* メッセージ返信画面 */
+.message-reply-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 140px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: #333;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 26px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.return_to_top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-return:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* お知らせ投稿画面 */
+.notice-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-family: inherit;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.btn-submit {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-submit:hover {
+  background-color: #1e7e34;
+}
+
+.return_to_top {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.btn-return {
+  background-color: #666;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-return:hover {
+  background-color: #444;
+  color: white;
+}
+
+/* お知らせ編集画面 */
+.delete-group {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-delete:hover {
+  background-color: #b02a37;
+}
+
+/* 各ページのタイトル */
+h1 {
+  text-align: center;
+  margin-bottom: 1.2em;
+  font-weight: 700;
+  font-size: 2rem;
+}

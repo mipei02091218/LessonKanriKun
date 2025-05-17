@@ -1,18 +1,24 @@
 <div class="main-container">
-
   <div class="main-contents">
-    <h2>お知らせの編集</h2>
-    <%= form_with(model: @notice, local: true) do |f| %>
-    <div class="field">
-      <%= f.label :content, "内容" %><br>
-      <%= f.text_area :content %>
-    </div>
-    <div class="actions">
-      <%= f.submit "更新する" %>
-    </div>
-  <% end %>
+    <h1>お知らせの編集</h1>
 
-  <%= button_to "削除する", notice_path(@notice), method: :delete, data: { confirm: "本当に削除しますか？" } %><br>
-  <%= link_to "戻る", root_path %>
+    <%= form_with(model: @notice, local: true, html: { class: "notice-form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :content, "内容", class: "form-label" %>
+        <%= f.text_area :content, class: "form-textarea", rows: 6 %>
+      </div>
+
+      <div class="form-group submit-group">
+        <%= f.submit "更新する", class: "btn btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="delete-group">
+      <%= button_to "削除する", notice_path(@notice), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-delete" %>
+    </div>
+
+    <div class="return_to_top">
+      <%= link_to "戻る", root_path, class: "btn btn-return" %>
+    </div>
   </div>
 </div>

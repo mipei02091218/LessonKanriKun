@@ -1,5 +1,4 @@
 <div class="main-container">
-
   <div class="main-contents">
     <h1>受信メッセージ一覧</h1>
     
@@ -9,30 +8,32 @@
       </div>
     <% end %>
 
-    <% @messages.each do |message| %>
-      <div class="message-box">
-        <p>
-          <% if message.sender == current_user %>
-            <strong>To:</strong> <%= message.receiver.name %>
-          <% else %>
-            <strong>From:</strong> <%= message.sender.name %>
+    <div class="messages-list">
+      <% @messages.each do |message| %>
+        <div class="message-box <%= message.sender == current_user ? 'message-sent' : 'message-received' %>">
+          <p class="message-header">
+            <% if message.sender == current_user %>
+              <strong>To:</strong> <%= message.receiver.name %>
+            <% else %>
+              <strong>From:</strong> <%= message.sender.name %>
+            <% end %>
+            <span class="message-date"><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+          </p>
+
+          <p class="message-subject">
+            <strong>件名:</strong>
+            <%= link_to(message.subject.presence || "Re", message_path(message)) %>
+          </p>
+
+          <% if message.sender == current_user && message.read %>
+            <span class="badge badge-success">既読</span>
           <% end %>
-        </p>
+        </div>
+      <% end %>
+    </div>
 
-        <p>
-          <strong>件名:</strong>
-          <%= link_to(message.subject.presence || "Re", message_path(message)) %>
-        </p>
-        <p><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
-        
-        <% if message.sender == current_user && message.read %>
-          <span class="badge badge-success">既読</span>
-        <% end %>
-
-      </div>
-    <% end %>
     <div class="return_to_top">
-    <%= link_to "戻る", root_path %>
+      <%= link_to "戻る", root_path, class: "btn btn-return" %>
     </div>
   </div>
 </div>
