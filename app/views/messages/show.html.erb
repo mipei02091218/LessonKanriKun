@@ -1,21 +1,23 @@
 <div class="main-container">
-  <div class="side-bar">
-    <%= render "homes/side_bar" %>
-  </div>
   <div class="main-contents">
     <h1>メッセージ詳細</h1>
-    
-    <p><strong>件名:</strong> <%= @message.subject %></p>
-    <p><strong>内容:</strong> <%= @message.body %></p>
-    <p><strong>送信者:</strong> <%= @message.sender.name %></p>
-    <p><strong>受信日:</strong> <%= @message.created_at.strftime("%Y-%m-%d %H:%M") %></p>
 
-    <% if @message.receiver == current_user %>
-      <%= link_to '返信する', reply_message_path(@message) %>
-    <% end %>
-    
+    <div class="message-detail">
+      <p><strong>件名:</strong> <span class="message-subject"><%= @message.subject %></span></p>
+      <p><strong>内容:</strong></p>
+      <div class="message-body"><%= simple_format(@message.body) %></div>
+      <p><strong>送信者:</strong> <span class="message-sender"><%= @message.sender.name %></span></p>
+      <p><strong>受信日:</strong> <span class="message-date"><%= @message.created_at.strftime("%Y-%m-%d %H:%M") %></span></p>
+
+      <% if @message.receiver == current_user %>
+        <div class="reply-link">
+          <%= link_to '返信する', reply_message_path(@message), class: "btn btn-reply" %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="return_to_top">
-    <%= link_to "戻る", messages_path %>
+      <%= link_to "戻る", messages_path, class: "btn btn-return" %>
     </div>
   </div>
 </div>

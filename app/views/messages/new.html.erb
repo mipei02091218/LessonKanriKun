@@ -1,28 +1,27 @@
 <div class="main-container">
-  <div class="side-bar">
-    <%= render "homes/side_bar" %>
-  </div>
   <div class="main-contents">
     <h1>メッセージ送信</h1>
     
-    <%= form_with model: @message, url: messages_path, method: :post do |f| %>
+    <%= form_with model: @message, url: messages_path, method: :post, html: { class: "message-form" } do |f| %>
       <%= hidden_field_tag :receiver_id, User.find_by(role: 'teacher')&.id %>
 
-      <div class="field">
-        <%= f.label :subject, "件名" %>
-        <%= f.text_field :subject %>
+      <div class="form-group">
+        <%= f.label :subject, "件名", class: "form-label" %>
+        <%= f.text_field :subject, class: "form-input" %>
       </div>
 
-      <div class="field">
-        <%= f.label :body, "内容" %>
-        <%= f.text_area :body %>
+      <div class="form-group">
+        <%= f.label :body, "内容", class: "form-label" %>
+        <%= f.text_area :body, rows: 6, class: "form-textarea" %>
       </div>
 
-      <%= f.submit "送信"%>
+      <div class="form-group submit-group">
+        <%= f.submit "送信", class: "btn btn-submit" %>
+      </div>
     <% end %>
 
     <div class="return_to_top">
-    <%= link_to "戻る", root_path %>
+      <%= link_to "戻る", root_path, class: "btn btn-return" %>
     </div>
   </div>
 </div>

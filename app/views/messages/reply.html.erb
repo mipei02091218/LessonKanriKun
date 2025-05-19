@@ -1,23 +1,22 @@
 <div class="main-container">
-  <div class="side-bar">
-    <%= render "homes/side_bar" %>
-  </div>
   <div class="main-contents">
     <h1>メッセージ返信</h1>
-    
-    <%= form_with model: @message, url: create_reply_message_path(params[:id]), method: :post do |f| %>
+
+    <%= form_with model: @message, url: create_reply_message_path(params[:id]), method: :post, html: { class: "message-reply-form" } do |f| %>
       <%= hidden_field_tag :receiver_id, @original_message.sender.id %>
 
-      <div class="field">
-        <%= f.label :body, "返信内容" %><br>
-        <%= f.text_area :body %>
+      <div class="form-group">
+        <%= f.label :body, "返信内容", class: "form-label" %>
+        <%= f.text_area :body, class: "form-textarea" %>
       </div>
 
-      <%= f.submit "返信" %>
+      <div class="form-group submit-group">
+        <%= f.submit "返信", class: "btn btn-submit" %>
+      </div>
     <% end %>
-    
+
     <div class="return_to_top">
-    <%= link_to "戻る", root_path %>
+      <%= link_to "戻る", root_path, class: "btn btn-return" %>
     </div>
   </div>
 </div>
