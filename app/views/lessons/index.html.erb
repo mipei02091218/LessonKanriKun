@@ -7,13 +7,13 @@
       </div>
     <% end %>
 
-    <div clsas="calendar-wrapper">
+    <div class="calendar-wrapper">
       <%= month_calendar(events: @lessons, class: "calendar") do |date, lessons| %>
-        <div class="calender-day">
+        <div class="calendar-day">
           <div class="date-label"><%= date.day %></div>
       
           <% lessons.each do |lesson| %>
-            <div class="lesson-item<%= current_user.teacher? ? 'teacher' : 'student' %>">
+            <div class="lesson-item-wrapper <%= current_user.teacher? ? 'teacher' : 'student' %>">
               <% if current_user.teacher? %>
                 <!-- 先生の場合、編集リンクを表示 -->
                 <%= link_to lesson.start_time.strftime("%H:%M"), edit_lesson_path(lesson.id), class: "lesson-item" %>

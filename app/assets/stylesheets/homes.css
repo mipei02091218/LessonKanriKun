@@ -65,6 +65,9 @@ body {
   display: inline-block;
   background: #ff6666;
   color: white;
+  border: none;
+  outline: none;
+  box-shadow: none;
   padding: 10px 14px;
   border-radius: 6px;
   text-decoration: none;
@@ -169,15 +172,19 @@ body {
   margin-top: 30px;
 }
 
-.return-to-top a {
+.return-to-top a{
   display: inline-block;
-  background-color: #ccc;
+  background-color: #777;
   color: white;
-  padding: 8px 14px;
-  font-weight: bold;
-  text-decoration: none;
+  padding: 0.6rem 1.2rem;
   border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
   transition: background-color 0.3s ease;
+}
+
+.return_to_top a:hover {
+  background-color: #555;
 }
 
 /* レッスン日時登録画面 */
@@ -210,23 +217,6 @@ body {
   margin-right: 0.5rem;
   display: inline-block;
   width: auto;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.btn:hover {
-  background-color: #45a049;
 }
 
 .btn.btn-submit {
@@ -299,7 +289,12 @@ body {
   background-color: #0b7dda;
 }
 
-.delete_lesson a {
+.delete-lesson {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.delete-lesson a {
   display: inline-block;
   background-color: #e74c3c;
   color: white;
@@ -310,7 +305,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.delete_lesson a:hover {
+.delete-lesson a:hover {
   background-color: #c0392b;
 }
 
@@ -327,7 +322,7 @@ body {
   color: #777;
 }
 
-.return_to_calendar a {
+.return-to-calendar a {
   display: inline-block;
   background-color: #777;
   color: white;
@@ -338,7 +333,7 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.return_to_calendar a:hover {
+.return-to-calendar a:hover {
   background-color: #555;
 }
 
@@ -352,6 +347,10 @@ body {
   max-width: 480px;
   margin: 0 auto 40px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.lesson-detail {
+  text-align: center;
 }
 
 .lesson-detail h1 {
@@ -804,10 +803,11 @@ h1 {
   background-color: #b02a37;
 }
 
-/* 各ページのタイトル */
+/* 共通 */
 h1 {
-  text-align: center;
   margin-bottom: 1.2em;
+  color: #333;
   font-weight: 700;
   font-size: 2rem;
+  text-align: center;
 }
