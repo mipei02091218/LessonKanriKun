@@ -9,7 +9,7 @@ class NoticesController < ApplicationController
   def create
     @notice = current_user.notices.build(notice_params)
     if @notice.save
-      redirect_to root_path, notice: "お知らせを投稿しました"
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class NoticesController < ApplicationController
 
   def ensure_teacher!
     unless current_user.teacher?
-      redirect_to root_path, alert: "先生のみが操作できます"
+      redirect_to root_path
     end
   end
 end
