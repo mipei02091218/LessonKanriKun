@@ -19,7 +19,7 @@
       </div>
       <h2>レッスン削除</h2>
       <div class="delete-lesson">
-      <%= link_to "削除", lesson_path(@lesson), data: {turbo_method: :delete} %>
+      <%= button_to "削除", lesson_path(@lesson), method: :delete %>
       </div>
 
       <h2>欠席者一覧</h2>

@@ -294,7 +294,7 @@ body {
   margin-top: 1.5rem;
 }
 
-.delete-lesson a {
+.delete-lesson button {
   display: inline-block;
   background-color: #e74c3c;
   color: white;
@@ -303,9 +303,10 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  border: none;
 }
 
-.delete-lesson a:hover {
+.delete-lesson button:hover {
   background-color: #c0392b;
 }
 
