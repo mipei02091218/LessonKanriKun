@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
     @message.read = false
 
     if @message.save
-      redirect_to messages_path, notice: 'メッセージを送信しました'
+      redirect_to messages_path
     else
       render :new
     end
@@ -53,7 +53,7 @@ class MessagesController < ApplicationController
     @message.read = false
     
     if @message.save
-      redirect_to messages_path, notice: '返信を送信しました'
+      redirect_to messages_path
     else
       @original_message = current_user.received_messages.find(params[:id])
       render :reply
