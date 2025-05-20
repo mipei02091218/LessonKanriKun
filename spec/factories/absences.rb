@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :absence do
-    user { nil }
-    lesson { nil }
+    association :user
+    association :lesson
   end
 end
