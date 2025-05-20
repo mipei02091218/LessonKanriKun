@@ -50,6 +50,8 @@ class LessonsController < ApplicationController
     if current_user.teacher? && lesson.teacher == current_user
       lesson.destroy
       redirect_to lessons_path
+    else
+      redirect_to lessons_path, alert: '削除できるのは先生のみです'
     end
   end
 
