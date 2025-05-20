@@ -5,9 +5,9 @@ class AbsencesController < ApplicationController
     @absence = @lesson.absences.build(user: current_user)
 
     if @absence.save
-      redirect_to lessons_path, notice: "欠席を登録しました"
+      redirect_to lessons_path
     else
-      redirect_to lessons_path, alert: "すでに欠席登録済みです"
+      redirect_to lessons_path
     end
   end
 
@@ -16,7 +16,7 @@ class AbsencesController < ApplicationController
     @absence = @lesson.absences.find_by(user: current_user)
     
     if @absence.destroy
-      redirect_to lessons_path, notice: "欠席を取り消しました"
+      redirect_to lessons_path
     end
   end
 
